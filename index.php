@@ -58,6 +58,7 @@ function assign_process_group_deleted_in_course($courseid)
             if (!$DB->get_record('customcert_issues', ['userid' => $userid, 'customcertid' => $certid])) {
                 continue;
             }
+            $user_info = $DB->get_record('user', ['id' => $user_fields->id]);
 
             $template = $DB->get_record('customcert_templates', array('id' => $cert_fields->templateid), '*', MUST_EXIST);
             $template = new \mod_customcert\template($template);
@@ -72,7 +73,7 @@ function assign_process_group_deleted_in_course($courseid)
                 'filearea' => 'customcert_issues',     // usually = table name
                 'itemid' => $certid,               // usually = ID of row in table
                 'filepath' => '/',           // any path beginning and ending in /
-                'filename' => 'user-' . $user_fields->id . '_cert-' . $certid . '_course-' . $course->shortname . '.pdf'
+                'filename' => $user_info->username . '_cert-' . $certid . '_course-' . $course->shortname . '.pdf'
             ); // any filename
 
             if ($file = $fs->get_file(
