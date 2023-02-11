@@ -29,10 +29,10 @@ require_once('../../config.php');
 $courseid = optional_param('id', null, PARAM_INT);
 
 if ($courseid) {
-    assign_process_group_deleted_in_course($courseid);
+    assign_process_group_deleted_in_course_custom($courseid);
 }
 
-function assign_process_group_deleted_in_course($courseid)
+function assign_process_group_deleted_in_course_custom($courseid)
 {
     if (!has_capability('mod/customcert:viewallcertificates', context_system::instance())) {
         die();

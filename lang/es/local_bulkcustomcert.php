@@ -22,11 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
-$plugin->component = 'local_bulkcustomcert';  // To check on upgrade, that module sits in correct place
-$plugin->version   = 2023021100;        // The current module version (Date: YYYYMMDDXX)
-$plugin->requires  = 2013040500;        // Requires Moodle version 2.5.
-$plugin->release   = '1.3.0 (2019111700)';
-$plugin->maturity  = MATURITY_STABLE;
-$plugin->cron      = 0;
+$string['pluginname'] = 'Descargar todos los certificados';
+$string['pluginname_help'] = 'Permite descargar todos los certificados de un curso.';
+$string['credit'] = 'Gonzalo Romero';
+$string['bulkdownloadlink'] = 'Descargar Certificados';
